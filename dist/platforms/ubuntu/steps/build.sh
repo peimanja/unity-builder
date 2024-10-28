@@ -119,7 +119,7 @@ unity-editor \
   $( [ "${MANUAL_EXIT}" == "true" ] || echo "-quit" ) \
   -customBuildName "$BUILD_NAME" \
   -projectPath "$UNITY_PROJECT_PATH" \
-  $( [ -n "$BUILD_PROFILE" ] && echo "-activeBuildProfile \"$UNITY_PROJECT_PATH/$BUILD_PROFILE\"" || echo "-buildTarget \"$BUILD_TARGET\" -customBuildTarget \"$BUILD_TARGET\"" ) \
+  $( [ -n "$BUILD_PROFILE" ] && echo "-activeBuildProfile $BUILD_PROFILE\" || echo "-buildTarget \"$BUILD_TARGET\" -customBuildTarget \"$BUILD_TARGET\"" ) \
   -customBuildPath "$CUSTOM_BUILD_PATH" \
   -executeMethod "$BUILD_METHOD" \
   -buildVersion "$VERSION" \
