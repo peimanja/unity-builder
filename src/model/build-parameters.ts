@@ -25,6 +25,7 @@ class BuildParameters {
   public skipActivation!: string;
   public runnerTempPath!: string;
   public targetPlatform!: string;
+  public buildProfile!: string;
   public projectPath!: string;
   public buildName!: string;
   public buildPath!: string;
@@ -151,6 +152,7 @@ class BuildParameters {
       skipActivation: Input.skipActivation,
       runnerTempPath: Input.runnerTempPath,
       targetPlatform: Input.targetPlatform,
+      buildProfile: Input.buildProfile,
       projectPath: Input.projectPath,
       buildName: Input.buildName,
       buildPath: `${Input.buildsPath}/${Input.targetPlatform}`,

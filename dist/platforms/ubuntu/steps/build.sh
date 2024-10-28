@@ -14,13 +14,12 @@ echo "Using project path \"$UNITY_PROJECT_PATH\"."
 echo "Using build name \"$BUILD_NAME\"."
 
 #
-# If BUILD_PROFILE is set, make sure BUILD_TARGET is unset
+# If BUILD_PROFILE is set, make sure BUILD_TARGET is ignored
 #
 
 if [ -n "$BUILD_PROFILE" ]; then
   if [ -n "$BUILD_TARGET" ]; then
     echo "BUILD_PROFILE is set, BUILD_TARGET will be ignored."
-    unset BUILD_TARGET
   fi
 fi
 
