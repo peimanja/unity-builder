@@ -5,7 +5,11 @@ inputs:
   targetPlatform:
     required: true
     default: ''
-    description: 'Platform that the build should target.'
+    description: 'Platform that the build should target. Either `targetPlatform` or `buildProfile` is required.'
+  buildProfile:
+    required: false
+    default: ''
+    description: 'Path to the activeBuildProfile file. Either `targetPlatform` or `buildProfile` is required.'
   unityVersion:
     required: false
     default: 'auto'

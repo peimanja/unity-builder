@@ -37,6 +37,7 @@ class ImageEnvironmentFactory {
       },
       { name: 'PROJECT_PATH', value: parameters.projectPath },
       { name: 'BUILD_TARGET', value: parameters.targetPlatform },
+      { name: 'BUILD_PROFILE', value: parameters.buildProfile },
       { name: 'BUILD_NAME', value: parameters.buildName },
       { name: 'BUILD_PATH', value: parameters.buildPath },
       { name: 'BUILD_FILE', value: parameters.buildFile },

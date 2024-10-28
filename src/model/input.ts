@@ -77,6 +77,10 @@ class Input {
     return Input.getInput('GITHUB_RUN_NUMBER') ?? '0';
   }
 
+  static get buildProfile(): string {
+    return Input.getInput('buildProfile') ?? '';
+  }
+
   static get targetPlatform(): string {
     return Input.getInput('targetPlatform') ?? Platform.default;
   }

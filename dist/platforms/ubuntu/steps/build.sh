@@ -14,6 +14,17 @@ echo "Using project path \"$UNITY_PROJECT_PATH\"."
 echo "Using build name \"$BUILD_NAME\"."
 
 #
+# If BUILD_PROFILE is set, make sure BUILD_TARGET is unset
+#
+
+if [ -n "$BUILD_PROFILE" ]; then
+  if [ -n "$BUILD_TARGET" ]; then
+    echo "BUILD_PROFILE is set, BUILD_TARGET will be ignored."
+    unset BUILD_TARGET
+  fi
+fi
+
+#
 # Display the build's target platform;
 #
 
@@ -109,8 +120,7 @@ unity-editor \
   $( [ "${MANUAL_EXIT}" == "true" ] || echo "-quit" ) \
   -customBuildName "$BUILD_NAME" \
   -projectPath "$UNITY_PROJECT_PATH" \
-  -buildTarget "$BUILD_TARGET" \
-  -customBuildTarget "$BUILD_TARGET" \
+  $( [ -n "$BUILD_PROFILE" ] && echo "-activeBuildProfile \"$BUILD_PROFILE\"" || echo "-buildTarget \"$BUILD_TARGET\" -customBuildTarget \"$BUILD_TARGET\"" ) \
   -customBuildPath "$CUSTOM_BUILD_PATH" \
   -executeMethod "$BUILD_METHOD" \
   -buildVersion "$VERSION" \
