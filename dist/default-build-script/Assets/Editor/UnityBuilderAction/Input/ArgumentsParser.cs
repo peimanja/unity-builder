@@ -22,18 +22,17 @@ namespace UnityBuilderAction.Input
       }
 
       string buildTarget;
-      if (!validatedOptions.TryGetValue("buildTarget", out buildTarget)) {
-        Console.WriteLine("Missing argument -buildTarget");
-        // EditorApplication.Exit(120);
-      }
+      validatedOptions.TryGetValue("buildTarget", out buildTarget);
 
       string activeBuildProfile;
-      if (!validatedOptions.TryGetValue("activeBuildProfile", out activeBuildProfile)) {
-        Console.WriteLine("Missing argument -activeBuildProfile");
-        // EditorApplication.Exit(120);
+      validatedOptions.TryGetValue("activeBuildProfile", out activeBuildProfile);
+
+      if (string.IsNullOrEmpty(buildTarget) && string.IsNullOrEmpty(activeBuildProfile)) {
+          Console.WriteLine("Missing argument -buildTarget or -activeBuildProfile");
+          EditorApplication.Exit(120);
       }
 
-      if (!Enum.IsDefined(typeof(BuildTarget), buildTarget)) {
+      if (!string.IsNullOrEmpty(buildTarget) && !Enum.IsDefined(typeof(BuildTarget), buildTarget)) {
         Console.WriteLine(buildTarget + " is not a defined " + typeof(BuildTarget).Name);
         EditorApplication.Exit(121);
       }
