@@ -27,6 +27,12 @@ namespace UnityBuilderAction.Input
         // EditorApplication.Exit(120);
       }
 
+      string buildProfile;
+      if (!validatedOptions.TryGetValue("buildProfile", out buildProfile)) {
+        Console.WriteLine("Missing argument -buildProfile");
+        // EditorApplication.Exit(120);
+      }
+
       if (!Enum.IsDefined(typeof(BuildTarget), buildTarget)) {
         Console.WriteLine(buildTarget + " is not a defined " + typeof(BuildTarget).Name);
         EditorApplication.Exit(121);
