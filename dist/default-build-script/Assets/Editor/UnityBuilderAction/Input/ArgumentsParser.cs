@@ -24,7 +24,7 @@ namespace UnityBuilderAction.Input
       string buildTarget;
       if (!validatedOptions.TryGetValue("buildTarget", out buildTarget)) {
         Console.WriteLine("Missing argument -buildTarget");
-        EditorApplication.Exit(120);
+        // EditorApplication.Exit(120);
       }
 
       if (!Enum.IsDefined(typeof(BuildTarget), buildTarget)) {
