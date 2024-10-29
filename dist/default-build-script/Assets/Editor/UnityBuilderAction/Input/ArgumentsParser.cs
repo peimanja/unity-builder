@@ -27,9 +27,9 @@ namespace UnityBuilderAction.Input
         // EditorApplication.Exit(120);
       }
 
-      string buildProfile;
-      if (!validatedOptions.TryGetValue("buildProfile", out buildProfile)) {
-        Console.WriteLine("Missing argument -buildProfile");
+      string activeBuildProfile;
+      if (!validatedOptions.TryGetValue("activeBuildProfile", out activeBuildProfile)) {
+        Console.WriteLine("Missing argument -activeBuildProfile");
         // EditorApplication.Exit(120);
       }
 
